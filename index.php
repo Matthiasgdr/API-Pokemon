@@ -1,5 +1,6 @@
 <?php
-    include('urls.php');
+    include('url.php');
+    include('get.php');
 ?>
 
 <!DOCTYPE html>

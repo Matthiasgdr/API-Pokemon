@@ -1,14 +1,7 @@
 <?php
-    // Define research and make default
-    $search = empty($_GET['searchPokemon']) ? '' : $_GET['searchPokemon'];
-    if (empty($_GET['searchPokemon'])) 
-    {
-        $searchState = 0;
-    }
-    else {
-        $searchState = 1;
-    };
-    $path = './info';
+
+    // How many pokemon to display
+
     if(empty($_GET['displayed']) || $_GET['displayed'] < 200){
         $current = 0;
     }
@@ -17,18 +10,13 @@
     };
     $step = empty($_GET['displayed']) ? 20 : $_GET['displayed'] - $current;
 
-    echo '<pre>';
-    print_r($current);
-    print_r($step);
-    echo '</pre>';
-
     // Create API general url
     $generalUrl = 'https://pokeapi.co/api/v2/pokemon/?';
     $generalUrl .= http_build_query([
         'offset' => $current,
         'limit' => $step,
     ]);
-
+    
     // Function creating urls when needed
     function createUrl($url, $index)
     {
@@ -80,31 +68,7 @@
     }
 
     // Function created sprite pokemon links
-    function pokemonSprite($pokemonName, $index, $side)
-    {
-        global $results;
-
-        createPokemonUrl($pokemonName, $index);
-        if($side===0){
-             $pokemonSprite = $results[$index]->sprites->front_default;
-        }
-        else{
-            $pokemonSprite = $results[$index]->sprites->back_default;
-
-        }
-        return $pokemonSprite;
-    }
-
-    // Function created id pokemon
-    function pokemonId($pokemonName, $index)
-    {
-        global $results;
-
-        createPokemonUrl($pokemonName, $index);
-
-        $pokemonId = $results[$index]->id;
-        return $pokemonId;
-    }
+   
 
     createUrl($generalUrl, 0);
 
