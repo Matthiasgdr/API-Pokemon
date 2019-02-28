@@ -15,17 +15,18 @@
 <body>
     <form class="search" action="" method="get">
         <label for="pokemon">Search a Pokemon by name or by ID : </label><br />
-        <input type="text" name="pokemon" placeholder="Search a Pokemon">
-        <input value="Search" type="submit">
+        <input class="inputs" type="text" name="pokemon" placeholder="Search a Pokemon">
+        <input class="submits" value="Search" type="submit">
     </form>
     <form  class="display" action="" method="get">
         <label for="displayed">Display 200 Pokemon until : </label><br />
-        <input type="number" name="displayed" placeholder="Between 0 and 1000">
-        <input value="Set" type="submit">
+        <input class="inputs" type="number" name="displayed" placeholder="Between 0 and 1000">
+        <input class="submits" value="Set" type="submit">
     </form>
     <div class="list-pokemon">
         <?php if(!empty($_GET['pokemon']) && $error === 0): ?>
         <div class="list-item-pokemon red">
+            <button>View</button>
             <p><?= pokemonId($searchedPokemon, 1)?></p>
             <div class="sprites-container">
                 <img alt="Front Sprite Not Available" class="sprite sprite-0" src="<?= pokemonSprite($searchedPokemon, 2, 0)?>">
@@ -36,6 +37,7 @@
         <?php endif; ?>
         <?php foreach($pokemon as $_pokemon): ?>
         <div class="list-item-pokemon">
+                <button>View</button>
                 <p><?= pokemonId($_pokemon->name, 1)?></p>
                 <div class="sprites-container">
                     <img alt="Front Sprite Not available" class="sprite sprite-0" src="<?= pokemonSprite($_pokemon->name, 2, 0)?>">

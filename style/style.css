@@ -3,6 +3,18 @@ body {
   margin: 0;
   font-family: Montserrat, sans-serif;
 }
+.inputs {
+  padding: 10px;
+  margin: 10px 0 0 0;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.submits {
+  background: #6c99d0;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
 .search {
   padding: 10px 50px;
   text-align: center;
@@ -30,6 +42,19 @@ body {
 }
 .list-item-pokemon p {
   padding: 0 20px 0 20px;
+}
+.list-item-pokemon button {
+  background: none;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 20px;
+  transition: all 0.3s;
+}
+.list-item-pokemon button:hover {
+  cursor: pointer;
+  background: #000;
+  color: #fff;
 }
 .list-item-pokemon:nth-child(odd) {
   background: #8bc6e9;
