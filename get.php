@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 function pokemonSprite($pokemonName, $index, $side)
 {
     global $results;
@@ -29,20 +26,25 @@ function pokemonId($pokemonName, $index)
     return $pokemonId;
 }
 
-function search($getPokemon, $pokemonName){
+function pokemonName($pokemonName, $index)
+{
     global $results;
 
-    $search = empty($_GET['search']) ? '' : $_GET['search'];
-    if (empty($_GET['search'])) 
-    {
-        $searchState = 0;
-        
-    }
-    else {
-        $searchState = 1;
-    };
-    
+    createPokemonUrl($pokemonName, $index);
+
+    $pokemonNick = $results[$index]->name;
+    return $pokemonNick;
 }
 
+$searchedPokemon = empty($_GET['pokemon']) ? '' : strtolower($_GET['pokemon']);
+$error = 0;
+
+function unknown_name(){
+    echo 'Pokemon Inconnu';
+    $error = 1;
+    exit();
+}
+
+set_error_handler('unknown_name')
 
 ?>

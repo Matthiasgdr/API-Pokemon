@@ -3,21 +3,22 @@
     // How many pokemon to display
 
     if(empty($_GET['displayed']) || $_GET['displayed'] < 200){
-        $current = 0;
+        $offset = 0;
     }
     else {
-        $current = $_GET['displayed'] - 200;
+        $offset = $_GET['displayed'] - 200;
     };
-    $step = empty($_GET['displayed']) ? 20 : $_GET['displayed'] - $current;
+    $limit = empty($_GET['displayed']) ? 50 : $_GET['displayed'] - $offset;
 
-    // Create API general url
-    $generalUrl = 'https://pokeapi.co/api/v2/pokemon/?';
-    $generalUrl .= http_build_query([
-        'offset' => $current,
-        'limit' => $step,
+    // Create API Url
+    $pokemonListUrl = 'https://pokeapi.co/api/v2/pokemon?';
+    $pokemonListUrl .= http_build_query([
+        'offset' => $offset,
+        'limit' => $limit,
     ]);
     
-    // Function creating urls when needed
+    
+    // Curling Urls
     function createUrl($url, $index)
     {
         global $results;
@@ -33,7 +34,6 @@
             $results[$index] = file_get_contents($cachePath);
             $cacheUsed = true;
         }
-        
         // Cache not available
         else
         {
@@ -60,18 +60,13 @@
     function createPokemonUrl($pokemonName, $index)
     {
         global $results;
-        // Create API pokemon url
+        // Create API pokemon url to curl it
         $pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
         $pokemonUrl .= $pokemonName;
-
+       // Let's curl this new url !
         createUrl($pokemonUrl, $index);
     }
-
-    // Function created sprite pokemon links
    
-
-    createUrl($generalUrl, 0);
-
+    createUrl($pokemonListUrl, 0);
     $pokemon = $results[0]->results;
-    $count = $results[0]->count;
 ?>

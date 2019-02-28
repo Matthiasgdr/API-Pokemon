@@ -1,13 +1,22 @@
 @import 'url(https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic)';
 body 
     margin: 0
+    font-family Montserrat, sans-serif
+
+.search
+    padding: 10px 50px
+    text-align: center
+.display
+    padding: 10px 50px
+    text-align: center
+
 .list-item-pokemon
     display flex
     align-items center
     color black
     padding 20px
-    font-family Montserrat, sans-serif
     text-transform capitalize
+  
     .sprites-container
         position relative
         width 96px
@@ -20,5 +29,10 @@ body
         padding: 0 20px 0 20px
     &:nth-child(odd)
         background #8bc6e9
+       
+
     &:nth-child(even)
         background #6c99d0
+
+  .red
+        background-color: #ed6161 !important
