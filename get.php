@@ -45,6 +45,6 @@ function unknown_name(){
     exit();
 }
 
-set_error_handler('unknown_name')
+ //set_error_handler('unknown_name')
 
 ?>

@@ -8,7 +8,7 @@
     else {
         $offset = $_GET['displayed'] - 200;
     };
-    $limit = empty($_GET['displayed']) ? 50 : $_GET['displayed'] - $offset;
+    $limit = empty($_GET['displayed']) ? 40 : $_GET['displayed'] - $offset;
 
     // Create API Url
     $pokemonListUrl = 'https://pokeapi.co/api/v2/pokemon?';
@@ -26,6 +26,7 @@
         // Create cache info
         $cacheKey = md5($url);
         $cachePath = './cache/'.$cacheKey;
+        $cachePath2 = '../cache/'.$cacheKey;
         $cacheUsed = false;
 
         // Cache available
@@ -49,7 +50,7 @@
             curl_close($curl);
 
             // Save in cache
-            file_put_contents($cachePath, $results[$index]);
+            file_put_contents($cachePath || $cachePath2, $results[$index]);
         }
 
         // Decode JSON

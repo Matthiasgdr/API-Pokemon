@@ -1,6 +1,7 @@
 <?php
     include('url.php');
     include('get.php');
+    
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,10 @@
     <div class="list-pokemon">
         <?php if(!empty($_GET['pokemon']) && $error === 0): ?>
         <div class="list-item-pokemon red">
-            <button>View</button>
+            <form action="pages/pokemon.php" method="get">
+                <input type="hidden" value="<?= $searchedPokemon ?>" name="view">
+                <a href="pages/<?= $searchedPokemon ?>.php"><button>View</button></a>
+            </form>
             <p><?= pokemonId($searchedPokemon, 1)?></p>
             <div class="sprites-container">
                 <img alt="Front Sprite Not Available" class="sprite sprite-0" src="<?= pokemonSprite($searchedPokemon, 2, 0)?>">
@@ -37,7 +41,10 @@
         <?php endif; ?>
         <?php foreach($pokemon as $_pokemon): ?>
         <div class="list-item-pokemon">
-                <button>View</button>
+        <form action="pages/pokemon.php" method="get">
+            <input type="hidden" value="<?= $_pokemon->name ?>" name="view">
+            <a href="pages/<?= $_pokemon->name ?>.php"><button>View</button></a>
+        </form>
                 <p><?= pokemonId($_pokemon->name, 1)?></p>
                 <div class="sprites-container">
                     <img alt="Front Sprite Not available" class="sprite sprite-0" src="<?= pokemonSprite($_pokemon->name, 2, 0)?>">
