@@ -1,14 +1,18 @@
 <?php
 
-    // How many pokemon to display
+    // How many pokemon to display until 200
 
-    if(empty($_GET['displayed']) || $_GET['displayed'] < 200){
+    /*if(empty($_GET['displayed']) || $_GET['displayed'] < 200){
         $offset = 0;
     }
     else {
         $offset = $_GET['displayed'] - 200;
     };
     $limit = empty($_GET['displayed']) ? 40 : $_GET['displayed'] - $offset;
+    */
+    
+    $limit = empty($_GET['displayed']) ? 40 : $_GET['displayed'];
+    $offset = 0;
 
     // Create API Url
     $pokemonListUrl = 'https://pokeapi.co/api/v2/pokemon?';
@@ -63,6 +67,15 @@
         global $results;
         // Create API pokemon url to curl it
         $pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
+        $pokemonUrl .= $pokemonName;
+       // Let's curl this new url !
+        createUrl($pokemonUrl, $index);
+    }
+    function createPokemonSpeciesUrl($pokemonName, $index)
+    {
+        global $results;
+        // Create API pokemon url to curl it
+        $pokemonUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
         $pokemonUrl .= $pokemonName;
        // Let's curl this new url !
         createUrl($pokemonUrl, $index);

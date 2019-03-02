@@ -2,70 +2,112 @@
 body {
   margin: 0;
   font-family: Montserrat, sans-serif;
+  color: #050037;
 }
 a {
   text-decoration: none;
   color: inherit;
 }
-.inputs {
+.index {
+  background: #204499;
+  color: #fff;
+}
+.index .forms {
+  margin: 20px 0px;
+}
+.index .forms .inputs {
   padding: 10px;
   margin: 10px 0 0 0;
   border-radius: 5px;
   font-size: 14px;
 }
-.submits {
+.index .forms .submits {
   background: #6c99d0;
   border: none;
   padding: 10px;
   border-radius: 5px;
 }
-.search {
+.index .forms .search {
   padding: 10px 50px;
   text-align: center;
 }
-.display {
+.index .forms .display {
   padding: 10px 50px;
   text-align: center;
 }
-.list-item-pokemon {
+.index .list-item-pokemon {
   display: flex;
   align-items: center;
-  color: #000;
+  color: #050037;
   padding: 20px;
   text-transform: capitalize;
 }
-.list-item-pokemon .sprites-container {
+.index .list-item-pokemon.red {
+  background-color: #ed6161 !important;
+}
+.index .list-item-pokemon .sprites-container {
   position: relative;
   width: 96px;
   height: 96px;
 }
-.list-item-pokemon .sprite {
+.index .list-item-pokemon .sprite {
   position: absolute;
   width: 96px;
   height: 96px;
 }
-.list-item-pokemon p {
+.index .list-item-pokemon p {
   padding: 0 20px 0 20px;
 }
-.list-item-pokemon button {
+.index .list-item-pokemon button {
   background: none;
-  border: 1px solid #000;
+  border: 1px solid #050037;
   border-radius: 5px;
   padding: 10px;
   margin: 0 20px;
   transition: all 0.3s;
 }
-.list-item-pokemon button:hover {
+.index .list-item-pokemon button:hover {
   cursor: pointer;
-  background: #000;
+  background: #050037;
   color: #fff;
 }
-.list-item-pokemon:nth-child(odd) {
+.index .list-item-pokemon:nth-child(odd) {
   background: #8bc6e9;
 }
-.list-item-pokemon:nth-child(even) {
+.index .list-item-pokemon:nth-child(even) {
   background: #6c99d0;
 }
-.red {
-  background-color: #ed6161 !important;
+.pokemon {
+  background: #6c99d0;
+}
+.pokemon .container {
+  background: #8bc6e9;
+  padding: 0 50px 50px 50px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.pokemon .container .stats {
+  padding: 20px 0px;
+}
+.pokemon .container .mesures {
+  display: flex;
+}
+.pokemon .container .mesures .weight {
+  padding: 10px 40px 0 0;
+}
+.pokemon .container .mesures .height {
+  padding: 10px 40px 0 0;
+}
+.pokemon .container .fiche {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.pokemon .container .fiche .sprite {
+  width: 200px;
+  height: 200px;
+  margin: 0 20px 0 0;
+}
+.pokemon .container .fiche div {
+  padding: 10px 0;
 }
