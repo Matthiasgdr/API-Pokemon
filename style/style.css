@@ -86,6 +86,9 @@ a {
   max-width: 1080px;
   margin: 0 auto;
 }
+.pokemon .container strong {
+  color: #262d82;
+}
 .pokemon .container .stats {
   padding: 20px 0px;
 }

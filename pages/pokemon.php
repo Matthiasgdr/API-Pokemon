@@ -40,6 +40,7 @@
         <div class="mesures">
             <div class="weight"><strong>Weight : </strong><?= pokemonMesure($pkm, 1, 'weight')?> kg</div>
             <div class="height"><strong>Height : </strong><?= pokemonMesure($pkm, 1, 'height')?> m</div>
+            <div class="height"><strong>Shape : </strong><?= ucfirst(pokemonShape($pkm, 1))?> </div>
         </div> 
         <div class="stats">
             <h2>Base stats :</h2>

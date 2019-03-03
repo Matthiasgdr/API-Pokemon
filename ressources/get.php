@@ -1,5 +1,7 @@
 <?php
 
+// Get all sprites
+
 function pokemonSprite($pokemonName, $index, $side, $shiney)
 {
     global $results;
@@ -24,6 +26,9 @@ function pokemonSprite($pokemonName, $index, $side, $shiney)
     
     return $pokemonSprite;
 }
+
+// Get english description
+
 function pokemonDesc($pokemonName, $index)
 {
     global $results;
@@ -37,14 +42,27 @@ function pokemonDesc($pokemonName, $index)
 
     return $pokemonDesc;
 }
+function pokemonShape($pokemonName, $index)
+{
+    global $results;
 
-// Get Type
+    createPokemonSpeciesUrl($pokemonName, $index);
+
+    $pokemonShape = $results[$index]->shape->name;
+   
+    return $pokemonShape;
+}
+
+// Get general results
+
 function getResults($pokemonName, $index)
 {
     global $results;
 
     createPokemonUrl($pokemonName, $index);
 }
+
+// Get Mesures 
 
 function pokemonMesure($pokemonName, $index, $mesure)
 {
@@ -71,6 +89,7 @@ function pokemonId($pokemonName, $index)
     return $pokemonId;
 }
 
+// Create pokemon Name
 function pokemonName($pokemonName, $index)
 {
     global $results;
